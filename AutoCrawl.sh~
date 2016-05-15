@@ -1,0 +1,5 @@
+#!/bin/bash
+export  PATH=/bin:/sbin:/usr/bin:/usr/sbin
+echo "111"
+cd /home/harris/Desktop/Crawl_PSI
+/usr/bin/python Crawl.py
