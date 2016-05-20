@@ -1,24 +1,21 @@
-# coding: utf-8
-#抓取及時空氣指標
+#使用python3.5.1 抓取及時空氣指標 並儲存
 #programmer:張弘瑜
+#date:2016/05/21
 
-#date:2016/05/15
 import csv
 import json
-import time
 import requests
 from bs4 import BeautifulSoup
 
-url = "http://taqm.epa.gov.tw/taqm/tw/Pm25Index.aspx"
+url = "http://opendata.epa.gov.tw/ws/Data/REWXQA/?$orderby=SiteName&$skip=0&$top=1000&format=json"
 res = requests.get(url)
-soup = BeautifulSoup(res.text, "lxml")#分析Html
-print "Crawl Data at : " + time.strftime("%Y/%m/%d %H:%M:%S") #抓取資料的時間
-
-for item in soup.select('.jTip'):#.jTip class
-   decodejson = json.loads(item.get('jtitle'))
-   CatchData = [[decodejson['SiteKey'], decodejson['FPMI'], decodejson['PM25_AVG'], decodejson['PM25'], decodejson['PSI'],\
-            decodejson['PM10_AVG'],decodejson['PM10'],decodejson['O3'],time.strftime("%Y/%m/%d %H:%M:%S")]]
-   FControl = open("Data/"+decodejson['SiteKey']+".csv",'ab')#a:append b:binary 可以免去多一行的困擾
+soup = BeautifulSoup(res.text, "html.parser")
+decodejson = json.loads(soup.text)
+for i in range(1,len(decodejson)):
+   CatchData = [[decodejson[i]['County'], decodejson[i]['SiteName'],decodejson[i]['PSI'],decodejson[i]['MajorPollutant'],decodejson[i]['Status']
+                  ,decodejson[i]['SO2'],decodejson[i]['CO'],decodejson[i]['O3'],decodejson[i]['PM10'],decodejson[i]['PM2.5']
+                 ,decodejson[i]['NO2'],decodejson[i]['FPMI'],decodejson[i]['NOx'],decodejson[i]['NO'],decodejson[i]['PublishTime']]]
+   FControl = open("Data/"+decodejson[i]['County']+".csv",'a', newline='')#a:append newline='' 可以免去多一行的困擾
    w = csv.writer(FControl)  
    w.writerows(CatchData)  
 FControl.close() 
