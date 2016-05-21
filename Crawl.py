@@ -15,7 +15,7 @@ for i in range(1,len(decodejson)):
    CatchData = [[decodejson[i]['County'], decodejson[i]['SiteName'],decodejson[i]['PSI'],decodejson[i]['MajorPollutant'],decodejson[i]['Status']
                   ,decodejson[i]['SO2'],decodejson[i]['CO'],decodejson[i]['O3'],decodejson[i]['PM10'],decodejson[i]['PM2.5']
                  ,decodejson[i]['NO2'],decodejson[i]['FPMI'],decodejson[i]['NOx'],decodejson[i]['NO'],decodejson[i]['PublishTime']]]
-   FControl = open("Data/"+decodejson[i]['County']+".csv",'a',encoding='Big5', newline='')#a:append newline='' 可以免去多一行的困擾
+   FControl = open("Data/"+decodejson[i]['County']+".csv",'a', newline='')#a:append newline='' 可以免去多一行的困擾
    w = csv.writer(FControl)  
    w.writerows(CatchData)  
 FControl.close() 
