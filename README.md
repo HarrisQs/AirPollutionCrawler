@@ -22,10 +22,13 @@ Then you can install what is listed in Code Need.
 
 Finally, you can use `python3 Crawl.py` to excute this program. 
 
+Additionally, if you want to automatically crawl at the specific time, you can use `crontab` this command to achieve.
+
 ## API Reference
 
 * [Beautiful Soup 4 Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 * [Python3 Read Write File](http://lolikitty.pixnet.net/blog/post/123789669-python-3-入門：讀-寫-文字檔案)
+* [crontab introduction](http://linux.vbird.org/linux_basic/0430cron.php#crontab)
 
 ## Contributors
 
