@@ -1,7 +1,7 @@
 # AirPollutionCrawler
 ## Synopsis
 
-Use `python 3.5.1` to crawl this [website](http://opendata.epa.gov.tw/Data/Contents/AQX/)'s air data.
+Use `python 3.5.1` to crawl this [website](http://opendata.epa.gov.tw/Home/Index/)'s air data.
 
 ## Code Need
 You should use the following packsge and software to use this project.
