@@ -1,5 +1,5 @@
 #使用python3.5.1 抓取及時空氣指標 並儲存
-#programmer:張弘瑜
+#programmer:HarrisQs
 #date:2016/05/21
 
 import csv
